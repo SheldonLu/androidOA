@@ -3,5 +3,20 @@
     <string name="app_name">省交通厅质监局移动平台</string>
     <string name="menu_settings">设置</string>
     <string name="menu_reflesh">刷新</string>
-
+    <string-array name="levelname">
+        <item>等级1</item>
+        <item>等级2 </item>
+        <item>等级3</item>
+        <item>等级4</item>
+    </string-array>
+	<string-array name="warning">
+        <item>平件</item>
+        <item>快件 </item>
+        <item>加急件</item>
+    </string-array>
+    <string-array name="orgarray">
+        <item>富政办</item>
+      	<item>省委</item>
+      	<item>市委</item>
+    </string-array>
 </resources>
