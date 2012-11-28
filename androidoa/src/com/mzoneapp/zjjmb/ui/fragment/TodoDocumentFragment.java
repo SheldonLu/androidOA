@@ -46,17 +46,6 @@ public class TodoDocumentFragment extends Fragment implements
 		
 		
 		mData.clear();
-		Map<String, String> map = null;
-		if(MainActivity.docBeans == null) return;
-		int length = MainActivity.docBeans.size();
-		for(int i = 0;i<length;i++){
-			map = new HashMap<String, String>();
-			TodoDocumentBean tb = MainActivity.docBeans.get(i);
-			map.put(mFrom[0], tb.title);
-			map.put(mFrom[1], tb.time);
-			map.put(mFrom[2], tb.suggess);
-			mData.add(map);
-		}
 		
 		mAdapter.notifyDataSetChanged();
 	}
@@ -85,7 +74,18 @@ public class TodoDocumentFragment extends Fragment implements
 //		map.put(mFrom[1], "12-10-21 10:12:44");
 //		map.put(mFrom[2], "总结发言");
 //		mData.add(map);
-
+		Map<String, String> map = null;
+	
+		int length = MainActivity.docBeans.size();
+		for(int i = 0;i<length;i++){
+			map = new HashMap<String, String>();
+			TodoDocumentBean tb = MainActivity.docBeans.get(i);
+			map.put(mFrom[0], tb.title);
+			map.put(mFrom[1], tb.time);
+			map.put(mFrom[2], tb.suggess);
+			mData.add(map);
+		}
+		
 		mAdapter = new MySimpleAdapter(context, mData,
 				R.layout.tododocument_item, mFrom, mTo);
 		mListView.setAdapter(mAdapter);
