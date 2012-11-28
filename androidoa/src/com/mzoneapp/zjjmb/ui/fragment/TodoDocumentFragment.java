@@ -43,22 +43,6 @@ public class TodoDocumentFragment extends Fragment implements
 	@Override
 	public void onStart() {
 		super.onStart();
-		
-		
-		mData.clear();
-		Map<String, String> map = null;
-		if(MainActivity.docBeans == null) return;
-		int length = MainActivity.docBeans.size();
-		for(int i = 0;i<length;i++){
-			map = new HashMap<String, String>();
-			TodoDocumentBean tb = MainActivity.docBeans.get(i);
-			map.put(mFrom[0], tb.title);
-			map.put(mFrom[1], tb.time);
-			map.put(mFrom[2], tb.suggess);
-			mData.add(map);
-		}
-		
-		mAdapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -85,13 +69,25 @@ public class TodoDocumentFragment extends Fragment implements
 //		map.put(mFrom[1], "12-10-21 10:12:44");
 //		map.put(mFrom[2], "总结发言");
 //		mData.add(map);
-
+		Map<String, String> map = null;
+	
+		int length = MainActivity.docBeans.size();
+		for(int i = 0;i<length;i++){
+			map = new HashMap<String, String>();
+			TodoDocumentBean tb = MainActivity.docBeans.get(i);
+			map.put(mFrom[0], tb.title);
+			map.put(mFrom[1], tb.time);
+			map.put(mFrom[2], tb.suggess);
+			mData.add(map);
+		}
+		
 		mAdapter = new MySimpleAdapter(context, mData,
 				R.layout.tododocument_item, mFrom, mTo);
 		mListView.setAdapter(mAdapter);
 		mListView.setCacheColorHint(0);
 		mListView.setDividerHeight(0);
 		mListView.setOnItemClickListener(this);
+		mAdapter.notifyDataSetChanged();
 		return view;
 	}
 
@@ -124,7 +120,7 @@ public class TodoDocumentFragment extends Fragment implements
 			super(context, data, resource, from, to);
 			// TODO Auto-generated constructor stub
 		}
-
+		
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			convertView=super.getView(position, convertView, parent);

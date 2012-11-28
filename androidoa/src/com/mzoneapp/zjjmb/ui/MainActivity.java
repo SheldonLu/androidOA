@@ -27,6 +27,8 @@ import com.mzoneapp.zjjmb.bean.TodoDocumentBean;
 import com.mzoneapp.zjjmb.ui.HeadlinesFragment.OnRefreshCallBack;
 import com.mzoneapp.zjjmb.ui.fragment.EmailFragment;
 import com.mzoneapp.zjjmb.ui.fragment.SearchFragment;
+import com.mzoneapp.zjjmb.ui.fragment.ToReadDocumentFragment;
+import com.mzoneapp.zjjmb.ui.fragment.TodoDocumentFragment;
 
 public class MainActivity extends SherlockFragmentActivity implements
 		CompatActionBarNavListener,OnRefreshCallBack,View.OnClickListener{
@@ -445,14 +447,20 @@ public class MainActivity extends SherlockFragmentActivity implements
 			invalidateOptionsMenu();
 			break;
 		case R.id.item2:
-			// 我的待办
-			setTitle("我的待办");
+			// 通知公告
+			setTitle("通知公告");
 			
 			break;
 		case R.id.item3:
-			// 通知公告
-			setTitle("通知公告");
-
+		
+			// 我的待办
+						setTitle("我的待办");
+						TodoDocumentFragment todoDocumentFragment = new TodoDocumentFragment(this);
+						mTabsAdapter.addTab(todoDocumentFragment);
+						bt1.setText("代办公文");
+						ToReadDocumentFragment toReadDocumentFragment=new ToReadDocumentFragment(this);
+						mTabsAdapter.addTab(toReadDocumentFragment);
+						bt2.setText("待阅公文");
 			break;
 		case R.id.item4:
 			// 动态信息
