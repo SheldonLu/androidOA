@@ -457,10 +457,10 @@ public class MainActivity extends SherlockFragmentActivity implements
 						setTitle("我的待办");
 						TodoDocumentFragment todoDocumentFragment = new TodoDocumentFragment(this);
 						mTabsAdapter.addTab(todoDocumentFragment);
-						bt1.setText("代办公文");
+						bt1.setText("待办事宜");
 						ToReadDocumentFragment toReadDocumentFragment=new ToReadDocumentFragment(this);
 						mTabsAdapter.addTab(toReadDocumentFragment);
-						bt2.setText("待阅公文");
+						bt2.setText("待阅通知");
 			break;
 		case R.id.item4:
 			// 动态信息
