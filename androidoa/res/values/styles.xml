@@ -3,7 +3,7 @@
     <style name="text_list_title">
         <item name="android:textSize">18.0sp</item>
         <item name="android:textStyle">bold</item>
-        <!--  item name="android:textColor">@color/list_title_text_selector</item-->
+        <!-- item name="android:textColor">@color/list_title_text_selector</item -->
     </style>
 
     <style name="text_list_desc">
@@ -25,8 +25,12 @@
         <item name="android:textColor">@color/color_list_desc</item>
         <item name="android:lineSpacingExtra">8.0px</item>
     </style>
-    
-            <style name="MenuDrawer" />
+
+    <style name="AppTheme" parent="myTheme">
+        <item name="menuDrawerStyle">@style/MenuDrawerStyle</item>
+    </style>
+
+    <style name="MenuDrawer" />
 
     <style name="MenuDrawer.Widget" />
 
@@ -35,11 +39,9 @@
         <item name="android:textColor">?android:attr/textColorSecondaryInverse</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textAllCaps">true</item>
-
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">16dp</item>
         <item name="android:background">@drawable/md__category_background</item>
-
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
     </style>
@@ -66,14 +68,13 @@
         <item name="mdArrowDrawable">@drawable/menu_arrow_right</item>
         <item name="mdMenuWidth">150dp</item>
     </style>
-    
- 	<style name="frame_button">
+
+    <style name="frame_button">
         <item name="android:layout_width">fill_parent</item>
-   		<item name="android:layout_height">fill_parent</item>
-       	<item name="android:layout_weight">1</item>
-       	<item name="android:background">@drawable/frame_button_bg</item>
-       	<item name="android:textColor">@color/frame_button_text_light</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/frame_button_bg</item>
+        <item name="android:textColor">@color/frame_button_text_light</item>
     </style>
-    
 
 </resources>

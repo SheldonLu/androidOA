@@ -7,48 +7,10 @@
     android:orientation="vertical" >
 
     <RelativeLayout
-        android:id="@+id/layout_1"
-        android:layout_width="fill_parent"
-        android:layout_height="48dip"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/title_bk2" >
-
-        <ImageButton
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/md__transparent"
-            android:padding="4dip"
-            android:src="@drawable/btn_back" />
-
-        <View
-            android:id="@+id/line0"
-            android:layout_width="1px"
-            android:layout_height="fill_parent"
-            android:layout_toRightOf="@id/btn_back"
-            android:background="#aa11264f" />
-
-        <View
-            android:layout_width="1px"
-            android:layout_height="fill_parent"
-            android:layout_toRightOf="@id/line0"
-            android:background="#009ad6" />
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="关于安全生产监督的会议"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-    </RelativeLayout>
-
-    <RelativeLayout
         android:id="@+id/layout_2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/layout_1" >
+        android:layout_alignParentTop="true" >
 
         <TextView
             android:id="@+id/txt_gly"

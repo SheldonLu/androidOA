@@ -23,11 +23,28 @@ import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.Window;
 import com.mzoneapp.zjjmb.R;
 import com.mzoneapp.zjjmb.api.ApiConstants;
+import com.mzoneapp.zjjmb.bean.TodoDocumentBean;
 import com.mzoneapp.zjjmb.ui.HeadlinesFragment.OnRefreshCallBack;
+import com.mzoneapp.zjjmb.ui.fragment.EmailFragment;
+import com.mzoneapp.zjjmb.ui.fragment.SearchFragment;
 
 public class MainActivity extends SherlockFragmentActivity implements
 		CompatActionBarNavListener,OnRefreshCallBack,View.OnClickListener{
+	public static ArrayList<TodoDocumentBean> docBeans;
 
+	static{
+		docBeans = new ArrayList<TodoDocumentBean>();
+		TodoDocumentBean tb = new TodoDocumentBean();
+		tb.title = " 富阳市人民政府关于富阳市农村村民建房管理的若干意见（试行）";
+		tb.time = "2012年11月06日";
+		tb.suggess = "请会签！  徐林  2012年11月28日10时32分";
+		tb.dengji = "等级1";
+		tb.desc = "今年以来，按照县委县政府的总体部署和县政协常委会工作要点安排，县政协认真履行工作";
+		tb.jinbanren = "徐林 ";
+		
+		docBeans.add(tb);
+	
+	}
 	private boolean useLogo = true;
 	private boolean showHomeUp = false;
 
@@ -167,12 +184,12 @@ public class MainActivity extends SherlockFragmentActivity implements
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-//		requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
-		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+		requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 		super.onCreate(savedInstanceState);
 		ApiConstants.createInstance();
 		// TODO: 更改创建时间
 		init(savedInstanceState);
+//		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 //		setContentView(R.layout.main_layout);
 
 		// find our fragments
@@ -186,11 +203,7 @@ public class MainActivity extends SherlockFragmentActivity implements
 		mIsDualPane = articleView != null
 				&& articleView.getVisibility() == View.VISIBLE;
 		ActionBar ab = getSupportActionBar();
-		// set defaults for logo & home up
-		ab.setDisplayHomeAsUpEnabled(showHomeUp);
-		ab.setDisplayUseLogoEnabled(useLogo);
-		ab.setDisplayShowTitleEnabled(true);
-
+		ab.setDisplayHomeAsUpEnabled(true);
 		// Register ourselves as the listener for the headlines fragment events.
 		// mHeadlinesFragment.setOnHeadlineSelectedListener(this);
 
@@ -295,6 +308,13 @@ public class MainActivity extends SherlockFragmentActivity implements
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+		case android.R.id.home:
+			if(mMenuDrawer.getDrawerState() == MenuDrawer.STATE_OPEN){
+				mMenuDrawer.closeMenu();
+			}else {
+				mMenuDrawer.openMenu();
+			}
+			return true;
 		case R.id.menu_reflesh:
 			mTabsAdapter.refresh();
 			return true;
@@ -349,8 +369,8 @@ public class MainActivity extends SherlockFragmentActivity implements
 	    public void destroyItem(ViewGroup container, int position, Object object) {
 	        super.destroyItem(container, position, object);
 
-	        if (position <= getCount()) {
-	            FragmentManager manager = ((Fragment) object).getFragmentManager();
+	        FragmentManager manager = ((Fragment) object).getFragmentManager();
+	        if (position <= getCount() && manager != null) {
 	            FragmentTransaction trans = manager.beginTransaction();
 	            trans.remove((Fragment) object);
 	            trans.commit();
@@ -417,7 +437,12 @@ public class MainActivity extends SherlockFragmentActivity implements
 		case R.id.item1:
 			// 公文查询
 			setTitle("公文查询");
-	
+			SearchFragment search = new SearchFragment();
+			search.setArguments(bundle);
+			mTabsAdapter.addTab(search);
+			bt1.setText("公文查询");
+			mRefresh = true;
+			invalidateOptionsMenu();
 			break;
 		case R.id.item2:
 			// 我的待办
@@ -454,7 +479,10 @@ public class MainActivity extends SherlockFragmentActivity implements
 		case R.id.item5:
 			// 电子邮件
 			setTitle("电子邮件");
-			
+			EmailFragment email = new EmailFragment();
+			email.setArguments(bundle);
+			mTabsAdapter.addTab(email);
+			bt1.setText("电子邮件");
 			
 			break;
 		case R.id.item6:
@@ -463,9 +491,8 @@ public class MainActivity extends SherlockFragmentActivity implements
 			break;
 		case R.id.item7:
 			// 通讯录
-			setTitle("通讯录");
+			setTitle("全市通讯录");
 			break;
-
 		default:
 			break;
 		}
