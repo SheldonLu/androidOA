@@ -43,11 +43,6 @@ public class TodoDocumentFragment extends Fragment implements
 	@Override
 	public void onStart() {
 		super.onStart();
-		
-		
-		mData.clear();
-		
-		mAdapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -92,6 +87,7 @@ public class TodoDocumentFragment extends Fragment implements
 		mListView.setCacheColorHint(0);
 		mListView.setDividerHeight(0);
 		mListView.setOnItemClickListener(this);
+		mAdapter.notifyDataSetChanged();
 		return view;
 	}
 
@@ -124,7 +120,7 @@ public class TodoDocumentFragment extends Fragment implements
 			super(context, data, resource, from, to);
 			// TODO Auto-generated constructor stub
 		}
-
+		
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			convertView=super.getView(position, convertView, parent);
