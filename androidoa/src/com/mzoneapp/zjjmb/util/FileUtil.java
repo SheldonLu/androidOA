@@ -1,25 +1,12 @@
-package com.mzoneapp.zjjmb.ui;
+package com.mzoneapp.zjjmb.util;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class MyFileManagerActivity {
-
-
+public class FileUtil {
 	public static  void openFile(Context ctx, File f) {
 		Intent intent = new Intent();
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -55,6 +42,4 @@ public class MyFileManagerActivity {
 		}
 		return type;
 	}
-
-	
 }

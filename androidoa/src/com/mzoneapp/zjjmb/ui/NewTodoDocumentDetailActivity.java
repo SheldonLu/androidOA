@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.mzoneapp.zjjmb.R;
+import com.mzoneapp.zjjmb.util.FileUtil;
 
 public class NewTodoDocumentDetailActivity extends Activity {
 
@@ -47,7 +48,7 @@ public class NewTodoDocumentDetailActivity extends Activity {
 									getResources().openRawResource(R.raw.test),
 									file);
 						}
-						MyFileManagerActivity.openFile(
+						FileUtil.openFile(
 								NewTodoDocumentDetailActivity.this, file);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
