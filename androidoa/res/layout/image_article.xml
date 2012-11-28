@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.ignition.core.widgets.RemoteImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ignition="http://github.com/ignition/schema"
+    android:id="@+id/thumbnail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="0"
+    android:background="#fff6f6f6"
+    android:indeterminateDrawable="@android:color/transparent"
+    android:scaleType="fitXY"
+    ignition:autoLoad="false"
+    ignition:errorDrawable="@android:color/transparent" />

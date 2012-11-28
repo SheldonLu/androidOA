@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mzoneapp.zjjmb.ui.MenuScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+  	<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@drawable/bg_title" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="省交通厅质监局移动平台"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+       
+        </RelativeLayout>
+        
+  	<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="查询"
+            style="@style/MenuDrawer.Widget.Category" />
+        
+	<TextView
+            android:id="@+id/item1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_search"
+            android:text="公文查询"
+            style="@style/MenuDrawer.Widget.Title" />
+        
+	<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="快捷功能"
+            style="@style/MenuDrawer.Widget.Category" />
+	
+		<TextView
+            android:id="@+id/item2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_tzgg"
+            android:text="通知公告"
+            style="@style/MenuDrawer.Widget.Title" />
+
+        <TextView
+            android:id="@+id/item3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_dbgw"
+            android:text="我的待办"
+            style="@style/MenuDrawer.Widget.Title" />
+
+        
+ 		<TextView
+            android:id="@+id/item4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_hytz"
+            android:text="动态信息"
+            style="@style/MenuDrawer.Widget.Title" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="信息"
+            style="@style/MenuDrawer.Widget.Category" />
+
+        <TextView
+            android:id="@+id/item5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_email"
+            android:text="电子邮件"
+            style="@style/MenuDrawer.Widget.Title" />
+
+        <TextView
+            android:id="@+id/item6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_xxkw"
+            android:text="信息刊物"
+            style="@style/MenuDrawer.Widget.Title" />
+
+
+        <TextView
+            android:id="@+id/item7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_qstxl"
+            android:text="全市通讯录"
+            style="@style/MenuDrawer.Widget.Title" />
+
+     
+    </LinearLayout>
+</com.mzoneapp.zjjmb.ui.MenuScrollView>

@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">省交通厅质监局移动平台</string>
+    <string name="menu_settings">设置</string>
+    <string name="menu_reflesh">刷新</string>
+
+</resources>
