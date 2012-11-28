@@ -154,9 +154,9 @@ public class MainActivity extends SherlockFragmentActivity implements
 		
 		bt2.setOnClickListener(frameBtnClick(bt2));
 		
+		findViewById(R.id.item2).performClick();
 		mMenuDrawer.getMenuDrawer().peekDrawer();
 		mMenuDrawer.getMenuDrawer().setDropShadowEnabled(false);
-		findViewById(R.id.item2).performClick();
 		
 //	        mViewPager.setAdapter(mTabsAdapter);
 		}
