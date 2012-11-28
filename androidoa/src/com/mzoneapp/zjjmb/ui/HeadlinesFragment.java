@@ -300,3 +300,4 @@ public class HeadlinesFragment extends SherlockListFragment implements OnItemCli
 	}
 
 }
+
