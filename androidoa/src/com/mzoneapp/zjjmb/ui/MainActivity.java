@@ -167,12 +167,12 @@ public class MainActivity extends SherlockFragmentActivity implements
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
+//		requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		super.onCreate(savedInstanceState);
 		ApiConstants.createInstance();
 		// TODO: 更改创建时间
 		init(savedInstanceState);
-//		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 //		setContentView(R.layout.main_layout);
 
 		// find our fragments
@@ -185,6 +185,11 @@ public class MainActivity extends SherlockFragmentActivity implements
 		View articleView = findViewById(R.id.article);
 		mIsDualPane = articleView != null
 				&& articleView.getVisibility() == View.VISIBLE;
+		ActionBar ab = getSupportActionBar();
+		// set defaults for logo & home up
+		ab.setDisplayHomeAsUpEnabled(showHomeUp);
+		ab.setDisplayUseLogoEnabled(useLogo);
+		ab.setDisplayShowTitleEnabled(true);
 
 		// Register ourselves as the listener for the headlines fragment events.
 		// mHeadlinesFragment.setOnHeadlineSelectedListener(this);
