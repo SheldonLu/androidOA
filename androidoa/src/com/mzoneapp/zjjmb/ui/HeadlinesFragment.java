@@ -42,6 +42,8 @@ public class HeadlinesFragment extends SherlockListFragment implements OnItemCli
     
     private IgnitedHttp http;
     
+    private ListView listView;
+    
     private String type;
 //    private boolean isLoaded = false;
     private boolean isNull = false;
@@ -95,7 +97,7 @@ public class HeadlinesFragment extends SherlockListFragment implements OnItemCli
     	
     	type = getArguments().getString(ApiConstants.TYPE);
     	http = new IgnitedHttp(getActivity());
-    	ListView listView = getListView();
+    	listView = getListView();
 //    	listView.setCacheColorHint(0);
 //    	listView.setDivider(null);
     	adapter = new ArticleAdapter(getActivity(),getListView());
@@ -189,7 +191,7 @@ public class HeadlinesFragment extends SherlockListFragment implements OnItemCli
                 adapter.setIsLoadingData(false);
                 adapter.notifyDataSetChanged();
                 if(clearBefore){ 
-                	getListView().setSelection(0);
+                	listView.setSelection(0);
             		if(null != onRefeshCallBack){
             			onRefeshCallBack.setProgressBar(false);
             		}
@@ -216,8 +218,8 @@ public class HeadlinesFragment extends SherlockListFragment implements OnItemCli
     }
     
     private void onRefreshComplete(){
-//    	if(getListView().isEnabled())
-//    		((PullToRefreshListView)getListView()).onRefreshComplete("最近更新："+new Date().toLocaleString());
+    	if(listView.isEnabled())
+    		((PullToRefreshListView)listView).onRefreshComplete("最近更新："+new Date().toLocaleString());
     }
     
     public void refresh(){
@@ -273,17 +275,17 @@ public class HeadlinesFragment extends SherlockListFragment implements OnItemCli
      */
     public void setSelectable(boolean selectable) {
         if (selectable) {
-        	getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        	listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         }
         else {
-        	getListView().setChoiceMode(ListView.CHOICE_MODE_NONE);
+        	listView.setChoiceMode(ListView.CHOICE_MODE_NONE);
         }
     }
 
 	@Override
 	public void onScroll(AbsListView view, int firstVisibleItem,
 			int visibleItemCount, int totalItemCount) {
-		((PullToRefreshListView)getListView()).onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
+		((PullToRefreshListView)listView).onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
         if (!isNull && adapter.shouldRequestNextPage(firstVisibleItem, visibleItemCount, totalItemCount)) {
             loadNextPage(false);
         }

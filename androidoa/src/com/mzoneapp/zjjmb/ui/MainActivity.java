@@ -23,28 +23,11 @@ import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.Window;
 import com.mzoneapp.zjjmb.R;
 import com.mzoneapp.zjjmb.api.ApiConstants;
-import com.mzoneapp.zjjmb.bean.TodoDocumentBean;
 import com.mzoneapp.zjjmb.ui.HeadlinesFragment.OnRefreshCallBack;
-import com.mzoneapp.zjjmb.ui.fragment.ToReadDocumentFragment;
-import com.mzoneapp.zjjmb.ui.fragment.TodoDocumentFragment;
 
 public class MainActivity extends SherlockFragmentActivity implements
 		CompatActionBarNavListener,OnRefreshCallBack,View.OnClickListener{
-	public static ArrayList<TodoDocumentBean> docBeans;
 
-	static{
-		docBeans = new ArrayList<TodoDocumentBean>();
-		TodoDocumentBean tb = new TodoDocumentBean();
-		tb.title = " 富阳市人民政府关于富阳市农村村民建房管理的若干意见（试行）";
-		tb.time = "2012年11月06日";
-		tb.suggess = "请会签！  徐林  2012年11月28日10时32分";
-		tb.dengji = "等级1";
-		tb.desc = "今年以来，按照县委县政府的总体部署和县政协常委会工作要点安排，县政协认真履行工作";
-		tb.jinbanren = "徐林 ";
-		
-		docBeans.add(tb);
-	
-	}
 	private boolean useLogo = true;
 	private boolean showHomeUp = false;
 
@@ -432,20 +415,14 @@ public class MainActivity extends SherlockFragmentActivity implements
 	
 			break;
 		case R.id.item2:
-			// 通知公告
-			setTitle("通知公告");
+			// 我的待办
+			setTitle("我的待办");
 			
 			break;
 		case R.id.item3:
-		
-			// 我的待办
-						setTitle("我的待办");
-						TodoDocumentFragment todoDocumentFragment = new TodoDocumentFragment(this);
-						mTabsAdapter.addTab(todoDocumentFragment);
-						bt1.setText("待办事宜");
-						ToReadDocumentFragment toReadDocumentFragment=new ToReadDocumentFragment(this);
-						mTabsAdapter.addTab(toReadDocumentFragment);
-						bt2.setText("待阅通知");
+			// 通知公告
+			setTitle("通知公告");
+
 			break;
 		case R.id.item4:
 			// 动态信息
