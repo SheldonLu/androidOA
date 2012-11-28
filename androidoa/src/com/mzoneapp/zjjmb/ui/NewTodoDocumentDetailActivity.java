@@ -5,27 +5,34 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import android.app.Activity;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.MenuItem;
 import com.mzoneapp.zjjmb.R;
 import com.mzoneapp.zjjmb.util.FileUtil;
 
-public class NewTodoDocumentDetailActivity extends Activity {
+public class NewTodoDocumentDetailActivity extends SherlockFragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.newtododoc_detail);
+		
+		final ActionBar ab = getSupportActionBar();
+		// set defaults for logo & home up
+		ab.setDisplayHomeAsUpEnabled(true);
+		ab.setDisplayUseLogoEnabled(true);
+		ab.setDisplayShowTitleEnabled(true);
+		setTitle("待办事宜详情");
+		
 		TextView attan = (TextView) findViewById(R.id.btn_attachment);
 		// attan.setText(Html.fromHtml("<u>富阳市人民政府关于富阳市农村村民建房管理的若干意见.docx</u>"));
 		attan.setText("富阳市人民政府关于富阳市农村村民建房管理的若干意见.docx");
@@ -59,16 +66,30 @@ public class NewTodoDocumentDetailActivity extends Activity {
 			}
 		});
 
-		((ImageButton) findViewById(R.id.btn_back))
-				.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-
-						finish();
-					}
-				});
-
 	}
+	
+	@Override
+	public void onBackPressed() {
+		finish();
+		overridePendingTransition(android.R.anim.slide_in_left,
+				android.R.anim.slide_out_right);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			// app icon in action bar clicked; go home
+			// Intent intent = new Intent(this, MainActivity.class);
+			// intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			// startActivity(intent);
+			onBackPressed();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
 
 	public void inputstreamtofile(InputStream ins, File file) throws Exception {
 		OutputStream os = new FileOutputStream(file);

@@ -5,42 +5,6 @@
     android:background="@color/base_bg"
     android:orientation="vertical" >
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="48dip"
-        android:background="@drawable/title_bk2" >
-
-        <ImageButton
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/md__transparent"
-            android:padding="4dip"
-            android:src="@drawable/btn_back" />
-
-        <View
-            android:id="@+id/line0"
-            android:layout_width="1px"
-            android:layout_height="fill_parent"
-            android:layout_toRightOf="@id/btn_back"
-            android:background="#aa11264f" />
-
-        <View
-            android:layout_width="1px"
-            android:layout_height="fill_parent"
-            android:layout_toRightOf="@id/line0"
-            android:background="#009ad6" />
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="待办公文详情"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-    </RelativeLayout>
-
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
@@ -113,37 +77,37 @@
                             android:textColor="@color/gray"
                             android:textSize="12sp" />
                     </RelativeLayout>
-                        <View
+
+                    <View
                         android:layout_width="fill_parent"
                         android:layout_height="1dp"
                         android:background="#f0f0f8" />
- <RelativeLayout
+
+                    <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:paddingBottom="8dp"
                         android:paddingTop="8dp" >
-                
 
-                    <TextView
-                        android:id="@+id/txt_content_label"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:paddingLeft="16dp"
-                        android:text="文件名称 "
-                        android:textColor="@color/gray"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/txt_content_label"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:paddingLeft="16dp"
+                            android:text="文件名称 "
+                            android:textColor="@color/gray"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/txt_title"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toRightOf="@id/txt_content_label"
-                        android:text="富阳市人民政府关于富阳市农村村民建房管理的若干意见（试行）" />
-
+                        <TextView
+                            android:id="@+id/txt_title"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/txt_content_label"
+                            android:text="富阳市人民政府关于富阳市农村村民建房管理的若干意见（试行）" />
                     </RelativeLayout>
 
                     <View
